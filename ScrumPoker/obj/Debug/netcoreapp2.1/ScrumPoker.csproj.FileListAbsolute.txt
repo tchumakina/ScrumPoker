@@ -1,0 +1,11 @@
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\obj\Debug\netcoreapp2.1\ScrumPoker.csprojAssemblyReference.cache
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\obj\Debug\netcoreapp2.1\ScrumPoker.csproj.CoreCompileInputs.cache
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\obj\Debug\netcoreapp2.1\ScrumPoker.AssemblyInfoInputs.cache
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\obj\Debug\netcoreapp2.1\ScrumPoker.AssemblyInfo.cs
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\bin\Debug\netcoreapp2.1\ScrumPoker.deps.json
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\bin\Debug\netcoreapp2.1\ScrumPoker.runtimeconfig.json
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\bin\Debug\netcoreapp2.1\ScrumPoker.runtimeconfig.dev.json
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\bin\Debug\netcoreapp2.1\ScrumPoker.dll
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\bin\Debug\netcoreapp2.1\ScrumPoker.pdb
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\obj\Debug\netcoreapp2.1\ScrumPoker.dll
+C:\Users\Tatsiana Chumakina\source\repos\ScrumPoker\ScrumPoker\obj\Debug\netcoreapp2.1\ScrumPoker.pdb
