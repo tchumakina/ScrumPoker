@@ -7,8 +7,8 @@ namespace ScrumPoker
         static void Main(string[] args)
         {
             ConsoleProcessor consoleProcessor = new ConsoleProcessor();
-            consoleProcessor.Voiting();
-            consoleProcessor.PrintAll();
+            consoleProcessor.PopulateData();
+            consoleProcessor.CheckPoints();
         }
     }
 }
