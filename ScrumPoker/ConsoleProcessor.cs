@@ -49,13 +49,13 @@ namespace ScrumPoker
             {
                 Console.WriteLine("Points are different");
                 PrintAll();
-                Console.WriteLine("Max point: "+ VoitingData.Values.Max());
-                Console.WriteLine("Min point: "+ VoitingData.Values.Min());
+                Console.WriteLine("Max point: " + VoitingData.Values.Max());
+                Console.WriteLine("Min point: " + VoitingData.Values.Min());
                 Revote();
             }
             else
             {
-                Console.WriteLine("Points are the same: "+VoitingData.Values.Max());
+                Console.WriteLine("Points are the same: " + VoitingData.Values.Max());
                 PrintAll();
             }
         }
@@ -64,14 +64,14 @@ namespace ScrumPoker
         {
             Console.WriteLine("Do you want users to revote? Y/N");
             string choice = Console.ReadLine();
-            if ( choice.Equals("Y"))
+            if (choice.Equals("Y"))
             {
                 VoitingData.Clear();
                 PopulateData();
                 CheckPoints();
             }
             else if (choice.Equals("N"))
-            { 
+            {
                 ScrumMasterPointSet();
             }
             else
@@ -85,7 +85,7 @@ namespace ScrumPoker
         {
             Console.WriteLine("Start a discussion! Set a final point yourself after discussion. Enter your point");
             string finalPoint = Console.ReadLine();
-            Console.WriteLine("Final point: "+finalPoint);
+            Console.WriteLine("Final point: " + finalPoint);
         }
 
         private int ReadInt()
@@ -96,7 +96,7 @@ namespace ScrumPoker
             }
             catch (FormatException e)
             {
-                Console.WriteLine("Entered value is not valid. Please enter valid value:"+e.Message);
+                Console.WriteLine("Entered value is not valid. Please enter valid value:" + e.Message);
                 return ReadInt();
             }
         }
