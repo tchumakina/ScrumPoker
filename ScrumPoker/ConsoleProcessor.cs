@@ -1,36 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace ScrumPoker
 {
-    class ConsoleProcessor
+    public interface IConcoleProcesor
+    {
+        void PopulateData();
+        void Voiting();
+        void PrintAll();
+        void CheckPoints();
+        void Revote();
+        void ScrumMasterPointSet();
+    }
+
+    public class ConsoleProcessor : IConcoleProcesor
     {
         public Dictionary<string, int> VoitingData { get; set; }
+        private readonly IConsoleWrapper consoleWrapper;
 
-        public ConsoleProcessor()
+        public ConsoleProcessor(IConsoleWrapper consoleWrapper)
         {
+            this.consoleWrapper = consoleWrapper;
             VoitingData = new Dictionary<string, int>();
         }
 
         public void PopulateData()
         {
-            Console.WriteLine("How many users will vote?");
-            int numberVoters = ReadInt();
+            consoleWrapper.Write("How many users will vote?");
+            int numberVoters = consoleWrapper.ReadInt();
             for (int i = 0; i < numberVoters; i++)
             {
                 Voiting();
             }
         }
 
-        private void Voiting()
+        public void Voiting()
         {
             string user;
             int point;
-            Console.WriteLine("Please enter user name");
-            user = Console.ReadLine();
-            Console.WriteLine("Enter point");
-            point = ReadInt();
+            consoleWrapper.Write("Please enter user name");
+            user = consoleWrapper.Read();
+            consoleWrapper.Write("Enter point");
+            point = consoleWrapper.ReadInt();
 
             VoitingData.Add(user, point);
         }
@@ -39,7 +50,7 @@ namespace ScrumPoker
         {
             foreach (var keyValuePair in VoitingData)
             {
-                Console.WriteLine(keyValuePair);
+                consoleWrapper.Write("user: " + keyValuePair.Key + ", score: " + keyValuePair.Value);
             }
         }
 
@@ -47,23 +58,23 @@ namespace ScrumPoker
         {
             if (VoitingData.Values.Max() > VoitingData.Values.Min())
             {
-                Console.WriteLine("Points are different");
+                consoleWrapper.Write("Points are different");
                 PrintAll();
-                Console.WriteLine("Max point: " + VoitingData.Values.Max());
-                Console.WriteLine("Min point: " + VoitingData.Values.Min());
+                consoleWrapper.Write("Max point: " + VoitingData.Values.Max());
+                consoleWrapper.Write("Min point: " + VoitingData.Values.Min());
                 Revote();
             }
             else
             {
-                Console.WriteLine("Points are the same: " + VoitingData.Values.Max());
+                consoleWrapper.Write("Points are the same: " + VoitingData.Values.Max());
                 PrintAll();
             }
         }
 
-        private void Revote()
+         public void Revote()
         {
-            Console.WriteLine("Do you want users to revote? Y/N");
-            string choice = Console.ReadLine();
+            consoleWrapper.Write("Do you want users to revote? Y/N");
+            string choice = consoleWrapper.Read();
             if (choice.Equals("Y"))
             {
                 VoitingData.Clear();
@@ -76,29 +87,16 @@ namespace ScrumPoker
             }
             else
             {
-                Console.WriteLine("Your choice is not valid. Choose correct value");
+                consoleWrapper.Write("Your choice is not valid. Choose correct value");
                 Revote();
             }
         }
 
-        private void ScrumMasterPointSet()
+        public void ScrumMasterPointSet()
         {
-            Console.WriteLine("Start a discussion! Set a final point yourself after discussion. Enter your point");
-            string finalPoint = Console.ReadLine();
-            Console.WriteLine("Final point: " + finalPoint);
-        }
-
-        private int ReadInt()
-        {
-            try
-            {
-                return Int32.Parse(Console.ReadLine());
-            }
-            catch (FormatException e)
-            {
-                Console.WriteLine("Entered value is not valid. Please enter valid value:" + e.Message);
-                return ReadInt();
-            }
+            consoleWrapper.Write("Start a discussion! Set a final point yourself after discussion. Enter your point");
+            int finalPoint = consoleWrapper.ReadInt();
+            consoleWrapper.Write("Final point: " + finalPoint);
         }
 
     }

@@ -1,12 +1,11 @@
-﻿using System;
-
-namespace ScrumPoker
+﻿namespace ScrumPoker
 {
     class Program
     {
         static void Main(string[] args)
         {
-            ConsoleProcessor consoleProcessor = new ConsoleProcessor();
+            ConsoleWrapper wrapper = new ConsoleWrapper();
+            ConsoleProcessor consoleProcessor = new ConsoleProcessor(wrapper);
             consoleProcessor.PopulateData();
             consoleProcessor.CheckPoints();
         }
