@@ -3,7 +3,17 @@ using System.Linq;
 
 namespace ScrumPoker
 {
-    public class ConsoleProcessor
+    public interface IConcoleProcesor
+    {
+        void PopulateData();
+        void Voiting();
+        void PrintAll();
+        void CheckPoints();
+        void Revote();
+        void ScrumMasterPointSet();
+    }
+
+    public class ConsoleProcessor : IConcoleProcesor
     {
         public Dictionary<string, int> VoitingData { get; set; }
         private readonly IConsoleWrapper consoleWrapper;
@@ -61,7 +71,7 @@ namespace ScrumPoker
             }
         }
 
-        private void Revote()
+         public void Revote()
         {
             consoleWrapper.Write("Do you want users to revote? Y/N");
             string choice = consoleWrapper.Read();
